@@ -1,0 +1,40 @@
+
+hhhhhhhhhhhhhhhhhhhh
+<div *ngIf="listUsers">
+<div *ngFor="let elem of listUsers; let i = index">
+    lol{{ elem.city }} 
+ 
+</div>
+</div>
+hhhhhhhhhhhh
+
+<h2> Product List </h2>
+<form>
+    <input type="number" name="nbMax" class="form-control" [(ngModel)]="nbMax">
+</form>
+{{nbMax}}
+<table class="table">
+<thead>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Like</th>
+</thead>
+<tbody *ngFor="let product of ProductList ; let i = index">
+    <tr  *ngIf="product.price <= nbMax || nbMax == null"  >
+        <td> {{product.id}} </td>
+        <td> {{product.title}}</td>
+        <td> {{product.quantity}}</td>
+        <td> {{product.price}} </td>
+        <td>
+            <button class="btn btn-primary" (click)="likeProduct(product)">
+                Like {{product.like}}
+            </button>
+        </td>
+        <td>
+            <button  [disabled]="product.quantity == 0" class="btn btn-danger" (click)="buyProduct(i)"> Buy</button>
+        </td>
+    </tr>
+</tbody>
+</table>
