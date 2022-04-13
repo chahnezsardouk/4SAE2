@@ -10,7 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 
 // const ROUTES : Routes = [
-// {path : 'a' , component: HomeComponent},
+// {path : 'home' , component: HomeComponent},
 // {path : 'todo' , component: TodoComponent},
 // {path: '**' , component: NotFoundComponent},
 // ]
