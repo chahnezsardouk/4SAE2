@@ -1,4 +1,6 @@
 <h2> Product List </h2>
+<button (click)="calcul()" class="btn btn-dark">Calcul</button> <p> Quantity = 0 : </p> <h3>{{n}}</h3> 
+
 <form>
     <input type="number" name="nbMax" class="form-control" [(ngModel)]="nbMax">
 </form>
@@ -15,7 +17,7 @@
                     Like {{product.like}}
                 </button>
                 <button  [disabled]="product.quantity == 0" class="btn btn-danger" (click)="buyProduct(i)"> Buy</button>
-              <a href="{product.id}">Detail</a>
+              <a routerLink="{{product.id}}">Detail</a>
             </div>
           </div>
           </div>

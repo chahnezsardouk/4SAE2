@@ -8,6 +8,8 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { TodoComponent } from './todo/todo.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DetailComponent } from './detail/detail.component';
+import {HttpClientModule} from '@angular/common/http'
 
 // const ROUTES : Routes = [
 // {path : 'home' , component: HomeComponent},
@@ -20,12 +22,14 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     TodoComponent,
     NotFoundComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     //RouterModule.forRoot(ROUTES),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

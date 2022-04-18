@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
+import { CalculService } from '../services/calcul.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ ProductList : Product[]
 n : number
 image: string ='../assets/1.jpg'
 nbMax : number;
-  constructor() { }
+  constructor(private calculservice : CalculService) { }
   listUsers : any []
 
   ngOnInit(): void {
@@ -33,13 +34,14 @@ nbMax : number;
   }
 
   calcul() {
-    this.n = 0;
-    this.ProductList.forEach(produit => {
-      if (produit.quantity == 0) {
-       this.n++
-      }
-    }
-    );
+    this.n = this.calculservice.calcul(this.ProductList , 'quantity' , 0);
+    // this.n = 0;
+    // this.ProductList.forEach(produit => {
+    //   if (produit.quantity == 0) {
+    //    this.n++
+    //   }
+    // }
+    // );
   }
 
 }

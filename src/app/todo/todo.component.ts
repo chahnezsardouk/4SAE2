@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../models/todo';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -8,13 +9,15 @@ import { Todo } from '../models/todo';
 })
 export class TodoComponent implements OnInit {
   todoList : Todo[]
-  constructor() { }
+  constructor(private todoService : TodoService) { }
   nb : number;
   ngOnInit(): void {
-    this.todoList = [{ id : 1 , title : 'todo1' , completed : true},
-    { id : 2 , title : "todo2" , completed : false},
-    { id : 3 , title : 'todo3' , completed : true},
-    { id : 4 , title : 'todo4' , completed : false}]
+    // this.todoList = [{ id : 1 , title : 'todo1' , completed : true},
+    // { id : 2 , title : "todo2" , completed : false},
+    // { id : 3 , title : 'todo3' , completed : true},
+    // { id : 4 , title : 'todo4' , completed : false}]
+
+this.todoService.getToDo().subscribe((data: Todo[]) => this.todoList = data)
   }
 
   calcul(){

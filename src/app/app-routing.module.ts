@@ -4,11 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 const ROUTES : Routes = [
   {path : 'home' , component: HomeComponent},
   {path : 'todo' , component: TodoComponent},
+  {path : 'home/:id' , component: DetailComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**' , component: NotFoundComponent},
   ]
 @NgModule({
