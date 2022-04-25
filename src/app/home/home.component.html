@@ -1,3 +1,58 @@
+<h2>{{titre}}</h2>
+<h3>Add Product</h3>
+<button class="btn btn-primary" (click)="showForm()"> Add Product</button>
+<button class="btn btn-danger float-right" (click)="hideForm()" style="float: right;"> Cancel</button>
+<form #f="ngForm" [hidden]="hidden">
+    <div>
+        <label>Id:</label>
+        <input #id="ngModel" type="number" name="id" class="form-control" [(ngModel)]="product.id" required>
+    </div>
+    <div class="alert-danger" *ngIf="id.invalid && id.touched">
+        Id is required
+    </div>
+    <div>
+        <label>Title</label>
+        <input #title="ngModel" type="text" name="title" class="form-control" [(ngModel)]="product.title" required
+            minlength="3" pattern="^[a-zA-Z]+$">
+    </div>
+    <div class=" alert-danger" *ngIf="title.invalid && title.touched">
+        <div *ngIf="title.errors?.['required']">Title is required</div>
+        <div *ngIf="title.errors?.['minlength']">minlength 3</div>
+        <div *ngIf="title.errors?.['pattern']">error pattern</div>
+    </div>
+    <div>
+        <label>Quantity</label>
+        <input #quantity="ngModel" type="number" name="quantity" class="form-control" [(ngModel)]="product.quantity"
+            required min="10">
+    </div>
+    <div class=" alert-danger" *ngIf="quantity.invalid && quantity.touched">
+        <div *ngIf="quantity.errors?.['required']"> Quantity is required</div>
+        <div *ngIf="quantity.errors?.['min']"> Min = 10 </div>
+    </div>
+    <div>
+        <label>Price</label>
+        <input #price="ngModel" type="number" name="price" class="form-control" [(ngModel)]="product.price" required>
+    </div>
+    <div class=" alert-danger" *ngIf="price.invalid && price.touched">
+        <div *ngIf="price.errors?.['required']"> Price is required</div>
+    </div>
+    <div class="alert-danger" *ngIf="price.value <0 ">
+        Price shoud be positive
+    </div>
+    <button class="btn btn-success" (click)="addProduct(product)" [disabled]="f.invalid
+    ">Add product</button>
+</form>
+
+
+
+
+
+
+
+<hr>
+
+
+
 <h2> Product List </h2>
 <button (click)="calcul()" class="btn btn-dark">Calcul</button> <p> Quantity = 0 : </p> <h3>{{n}}</h3> 
 
@@ -11,13 +66,13 @@
             <img class="card-img-top" src="{{image}}" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Title : {{product.title}}</h5>
-              <p class="card-text">Quantity : {{product.quantity}}</p>
-              <p class="card-text">Price : {{product.price}}</p>
-                <button class="btn btn-primary" (click)="likeProduct(product)">
-                    Like {{product.like}}
-                </button>
-                <button  [disabled]="product.quantity == 0" class="btn btn-danger" (click)="buyProduct(i)"> Buy</button>
-              <a routerLink="{{product.id}}">Detail</a>
+              <p class="card-text">Quantity : {{product.quantity}} <br>Price : {{product.price}}</p>
+              <button style="margin-right: 1px;" (click)="likeProduct(product)" class="btn btn-primary">{{product.like }} Like</button>
+              <button style="margin-right: 1px;" class="btn btn-success" (click)="buyProduct(product.id)" [disabled]="product.quantity == 0">
+                  Buy</button>
+              <button style="margin-right: 1px;" class="btn btn-danger" (click)="deleteProduct(product)">
+                  Delete</button>
+              <a style="float: right;" routerLink="{{product.id}}">Details</a>
             </div>
           </div>
           </div>

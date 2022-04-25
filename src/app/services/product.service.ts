@@ -13,10 +13,13 @@ api = 'http://localhost:3000/products'
   getPoducts(){
     return this.http.get<Product []>(this.api)
   }
-  addPoduct (product , Product){
-    return this.http.post(this.api , product)
+  addPoduct (p : Product){
+    return this.http.post(this.api , p)
   }
   getProductById(id : number){
     return this.http.get(this.api+'/'+id)
+  }
+  deleteProduct (id : number) {
+    return this.http.delete(this.api + '/' + id)
   }
 }
