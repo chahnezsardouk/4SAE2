@@ -1,0 +1,18 @@
+<div class="col-md-4">
+  <div *ngIf="nombreMax>=product.price || nombreMax == null">
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{product.image}}" alt="Card image cap" style="width: 200px; height: 250px;">
+          <div class="card-body">
+              <h5 class="card-title">Title :{{product.title}}</h5>
+              <p class="card-text">Price :{{product.price}} <br> Quantity :{{product.quantity}}</p>
+              <button (click)="sendNotifLike()" class="btn btn-primary">{{product.like }} Like</button>
+                  <button class="btn btn-success" (click)="sendNotifBuy()" [disabled]="product.quantity == 0">
+                      Buy</button>
+                  <button class="btn btn-danger" (click)="sendNotifDelete()">
+                      Delete</button>
+                  <a routerLink="{{product.id}}">Details</a>
+          </div>
+          
+      </div>
+  </div>
+</div>

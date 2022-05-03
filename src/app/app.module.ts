@@ -9,7 +9,9 @@ import { TodoComponent } from './todo/todo.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DetailComponent } from './detail/detail.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { ProductComponent } from './product/product.component';
+import { ElectroComponent } from './electro/electro.component'
 
 // const ROUTES : Routes = [
 // {path : 'home' , component: HomeComponent},
@@ -23,6 +25,8 @@ import {HttpClientModule} from '@angular/common/http'
     TodoComponent,
     NotFoundComponent,
     DetailComponent,
+    ProductComponent,
+    ElectroComponent,
   ],
   imports: [
     BrowserModule,

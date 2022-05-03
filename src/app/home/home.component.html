@@ -12,8 +12,10 @@
     </div>
     <div>
         <label>Title</label>
-        <input #title="ngModel" type="text" name="title" class="form-control" [(ngModel)]="product.title" required
-            minlength="3" pattern="^[a-zA-Z]+$">
+        <input #title="ngModel" type="text" name="title" class="form-control" [(ngModel)]="product.title" 
+        required
+            minlength="3" 
+            pattern="^[a-zA-Z]+$">
     </div>
     <div class=" alert-danger" *ngIf="title.invalid && title.touched">
         <div *ngIf="title.errors?.['required']">Title is required</div>
@@ -54,14 +56,21 @@
 
 
 <h2> Product List </h2>
-<button (click)="calcul()" class="btn btn-dark">Calcul</button> <p> Quantity = 0 : </p> <h3>{{n}}</h3> 
+<button (click)="calcul()" class="btn btn-dark">Calcul</button> <p> Quantity = 0 : </p> <h3>{{nb}}</h3> 
 
 <form>
-    <input type="number" name="nbMax" class="form-control" [(ngModel)]="nbMax">
+    <input type="number" name="nbMax" class="form-control" [(ngModel)]="nombreMax">
 </form>
-{{nbMax}}
+
+
+{{nombreMax}}
 <div class="row">
-    <div class="col-md-4" *ngFor="let product of ProductList ; let i = index">
+    <app-product class="col-md-4" *ngFor="let product of productList ,
+     let i = index" [product]="product" [nombreMax]="nombreMax" (notificationLike)="IncrementLikeOutput($event)"
+        (notificationDelete)="deleteProduct($event)" (notificationBuy)="buyProductOutPut($event)"></app-product>
+   
+
+    <!-- <div class="col-md-4" *ngFor="let product of ProductList ; let i = index">
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="{{image}}" alt="Card image cap">
             <div class="card-body">
@@ -75,7 +84,7 @@
               <a style="float: right;" routerLink="{{product.id}}">Details</a>
             </div>
           </div>
-          </div>
+          </div> -->
 </div>
 
 <!-- 

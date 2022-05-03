@@ -5,21 +5,26 @@
       "title": "Tshirt 1",
       "price": 18,
       "quantity": 0,
-      "like": 0
-    },
-    {
-      "id": 2,
-      "title": "Tshirt 2",
-      "price": 21,
-      "quantity": 10,
-      "like": 0
+      "like": 0,
+      
+      "image": "../assets/tshirt.jpg"
     },
     {
       "id": 3,
       "title": "Tshirt 3",
-      "price": 16,
-      "quantity": 8,
-      "like": 0
+      "price": 18,
+      "quantity": 17,
+      "like": 0,
+      
+      "image": "../assets/tshirt.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Tshirt 4",
+      "price": 5,
+      "quantity": 13,
+      "like": 0,
+      "image": "../assets/tshirt.jpg"
     }
   ]
 }
